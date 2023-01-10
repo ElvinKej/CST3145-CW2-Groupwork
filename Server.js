@@ -26,3 +26,29 @@ app.get("/user", function(req, res) {
     
     res.json(user);
 });
+
+app.get("/lessons", function(req, res) {
+    let lessons = [
+        {
+            "topic": "Math", 
+            "location" : "Hendon",
+            "price" : " 100"
+        },
+        {
+            "topic": "Math", 
+            "location" : "Colindale",
+            "price" : " 80"
+        },
+        {
+            "topic": "Math", 
+            "location" : "Brent Cross",
+            "price" : " 90"
+        },
+        {
+            "topic": "Math", 
+            "location" : "Golders Green",
+            "price" : " 120"
+        },
+    ]
+    res.json(lessons);
+});
