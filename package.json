@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/ElvinKej/CST3145-CW2-Groupwork/issues"
   },
-  "homepage": "https://github.com/ElvinKej/CST3145-CW2-Groupwork#readme"
+  "homepage": "https://github.com/ElvinKej/CST3145-CW2-Groupwork#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
 }
