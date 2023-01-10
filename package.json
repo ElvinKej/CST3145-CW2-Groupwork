@@ -1,0 +1,20 @@
+{
+  "name": "cst3145-cw2-groupwork",
+  "version": "1.0.0",
+  "description": "Node.js and Express server",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElvinKej/CST3145-CW2-Groupwork.git"
+  },
+  "author": "Elvin, Zhikang, Johncelle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElvinKej/CST3145-CW2-Groupwork/issues"
+  },
+  "homepage": "https://github.com/ElvinKej/CST3145-CW2-Groupwork#readme"
+}
