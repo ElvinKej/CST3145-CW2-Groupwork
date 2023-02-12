@@ -37,13 +37,27 @@ app.use(cors());
 
 app.set('json spaces', 1);
 
-app.use(function (req, res, next) {
-    console.log("incoming request" + req.url);
-    next();
+app.param('collectionName', function(req, res, next, collectionName) {
+    req.collection = db.collection(collectionName);
+    return next();
 });
+
+// app.use(function (req, res, next) {
+//     console.log("incoming request" + req.url);
+//     next();
+// });
 
 app.get("/", function(req, res) {
     res.send("Welcome to our server");
+});
+
+app.get('/collections/:collectionName', function(req, res, next) { 
+    req.collection.find({}).toArray(function (err, results) {
+        if (err) {
+            return next(err);
+        }
+        res.send(results);
+    });
 });
 
 app.get("/user", function(req, res) {
