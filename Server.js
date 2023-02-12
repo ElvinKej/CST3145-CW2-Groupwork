@@ -1,6 +1,12 @@
-var express = require("express");
+const express = require("express");
 const { allowedNodeEnvironmentFlags } = require("process");
 const cors = require("cors");
+const morgan = require("morgan");
+const path = require("path");
+
+let propertiesReader = require("properties-reader");
+let propertiesPath = path.resolve(__dirname, "conf/db.properties");
+let properties = propertiesReader(propertiesPath);
 
 var app = express();
 app.use(cors());
