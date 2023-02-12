@@ -8,6 +8,30 @@ let propertiesReader = require("properties-reader");
 let propertiesPath = path.resolve(__dirname, "conf/db.properties");
 let properties = propertiesReader(propertiesPath);
 
+let dbPrefix = properties.get("db.prefix");
+//URL-Encoding of User and PWD
+//for potential special characters
+let dbUsername = encodeURIComponent(properties.get("db.user"));
+let dbPwd = encodeURIComponent(properties.get("db.pwd"));
+let dbName = properties.get("db.dbName");
+let dbUrl = properties.get("db.dbUrl");
+let dbParams = properties.get("db.params");
+
+const uri = dbPrefix + dbUsername + ":" + dbPwd + dbUrl + dbParams;
+
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const uri = "mongodb+srv://WebStoreUser:<password>@webstorecluster.4nydb5v.mongodb.net/?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
+const { MongoClient, ServerApiVersion, OBjectId } = require("mongodb");
+const client = new MongoClient(uri, { serverApi: ServerApiVersion.v1 });
+let db = client.db(dbName);
+
 var app = express();
 app.use(cors());
 
