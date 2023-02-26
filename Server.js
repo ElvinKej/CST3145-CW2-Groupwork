@@ -42,10 +42,10 @@ app.param('collectionName', function(req, res, next, collectionName) {
     return next();
 });
 
-// app.use(function (req, res, next) {
-//     console.log("incoming request" + req.url);
-//     next();
-// });
+app.use(function (req, res, next) {
+    console.log("incoming request" + req.url);
+    next();
+});
 
 app.get("/", function(req, res) {
     res.send("Welcome to our server");
@@ -185,6 +185,11 @@ app.get("/lessons", function(req, res) {
     res.json(products);
 });
 
-app.listen(3000, function() {
-    console.log("App started on port 3000");
+// app.listen(3000, function() {
+//     console.log("App started on port 3000");
+// });
+
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
+console.log("App started on port: " + port);
 });
